@@ -40,6 +40,9 @@ You can't be sure the user will give you properly formatted data, or data that c
 
 1. In 1-2 sentences, define end to end testing.
 
+End to end testing is designed to make sure an application is properly communicating with the back end.
+
+
 ## Instructions
 
 ### Task 1: Project Set Up

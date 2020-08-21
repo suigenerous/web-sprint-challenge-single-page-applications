@@ -16,7 +16,7 @@ const initialFormValues = {
     olives: false,
     jalapenos: false,
   },
-  specialInstructions: ''
+  specialInstructions: '',
 }
 
 const initialFormErrors = {
@@ -24,7 +24,7 @@ const initialFormErrors = {
 }
 
 const initialOrders = []
-const initialDisabled = true
+const initialDisabled = false
 
 const App = () => {
 
@@ -37,13 +37,28 @@ const App = () => {
 
   // networking helpers
 
-  const getOrders = () =>{
-    // axios call to back end 
-  }
+  // const getOrders = () =>{
+  //   axios.get('https://reqres.in/api/orders')
+  //     .then(res => {
+  //       console.log(orders)
+  //     })
+  //     .catch(err => {
+  //       console.log(err)
+  //     })
+  // }
 
   const postNewOrder = (newOrder) => {
     // axios post to backend
-    console.log(newOrder)
+    axios.post('https://reqres.in/api/orders', newOrder)
+      .then(res => {
+        setOrders([...orders, res.data])
+      })
+      .catch(err => {
+        console.log(err)
+      })
+      .finally(() => {
+        setFormValues(initialFormValues)
+      })
   }
   // form helpers
 
@@ -59,10 +74,13 @@ const App = () => {
     const newOrder = {
       name: formValues.name,
       pizzaSize: formValues.pizzaSize,
-      toppings: Object.keys(formValues.toppings).filter(top => formValues.hobbies[top]),
+      toppings: Object.keys(formValues.toppings).filter((top) => formValues.toppings[top]),
+      specialInstructions: formValues.specialInstructions,
     }
     postNewOrder(newOrder)
   }
+
+  // side effect
 
   return (
     <div className = 'App'>

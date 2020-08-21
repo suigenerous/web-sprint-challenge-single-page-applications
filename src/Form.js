@@ -30,12 +30,12 @@ export default function Form(props) {
     // JSX
 
     return (
-        <div className = 'formContainer' onSubmit={onSubmit}>
+        <div className = 'formContainer'>
             <h2>Form</h2>
             <div className='form-group submit'>
                 <h3>Add an Order</h3>
 
-                <button disabled={disabled}>submit order</button>
+                <button disabled={disabled} onClick = {onSubmit}>submit order</button>
 
                 <div className='errors'>
                     <div>{errors.username}</div>
@@ -102,6 +102,15 @@ export default function Form(props) {
                         />
                     </label>
                 </div>
+                {/* special instructions */}
+                <label>Special Instructions&nbsp;
+                    <input
+                        value = {values.specialInstructions}
+                        onChange = {onInputChange}
+                        name = 'specialInstructions'
+                        type = 'text'
+                    />
+                </label>
             </div>
 
         </div>
