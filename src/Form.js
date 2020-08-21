@@ -67,6 +67,41 @@ export default function Form(props) {
                         <option value='18'>18"</option>
                     </select>
                 </label>
+                {/* pizza toppings check boxes */}
+                <div className='topping-checkboxes'>
+                    <label>Pepperoni
+                        <input
+                            type='checkbox'
+                            name='pepperoni'
+                            checked={values.toppings.pepperoni}
+                            onChange={onCheckboxChange}
+                        />
+                    </label>
+                    <label>Sausage
+                        <input
+                            type='checkbox'
+                            name='sausage'
+                            checked={values.toppings.sausage}
+                            onChange={onCheckboxChange}
+                        />
+                    </label>
+                    <label>Olives
+                        <input
+                            type='checkbox'
+                            name='olives'
+                            checked={values.toppings.olives}
+                            onChange={onCheckboxChange}
+                        />
+                    </label>
+                    <label>Jalapenos
+                        <input
+                            type='checkbox'
+                            name='jalapenos'
+                            checked={values.toppings.jalapenos}
+                            onChange={onCheckboxChange}
+                        />
+                    </label>
+                </div>
             </div>
 
         </div>
